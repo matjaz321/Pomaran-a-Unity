@@ -19,7 +19,7 @@ public class CharacterMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if (Input.GetKey (KeyCode.Space)) {
+		if (Input.GetKeyDown (KeyCode.Space)) {
 			myRb.velocity = new Vector2 (myRb.velocity.x, Jump * Time.deltaTime);
 		}
 
@@ -31,11 +31,15 @@ public class CharacterMovement : MonoBehaviour {
 		if (Input.GetKey (KeyCode.LeftArrow)) {
 			if(myRb.velocity.x >= (-speed * Time.deltaTime))
 				myRb.velocity = new Vector2 (-speed * Time.deltaTime, myRb.velocity.y);
+
 		}
 
 		if (Input.GetKeyDown (KeyCode.UpArrow)) {
 			myRb.velocity = new Vector2 (myRb.velocity.x * BoostSpeed * Time.deltaTime, myRb.velocity.y * BoostSpeed * Time.deltaTime);
 			//myRb.AddForce((Vector2.right + Vector2.up) * BoostSpeed * Time.deltaTime);
+			if (myRb.velocity.y < 0) {
+				myRb.velocity = new Vector2 (myRb.velocity.x * BoostSpeed * Time.deltaTime, myRb.velocity.y * BoostSpeed * Time.deltaTime);
+			}
 		}
 	}
 		
