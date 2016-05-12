@@ -192,7 +192,7 @@ Transform:
   - {fileID: 1194361161}
   - {fileID: 867961894}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
 --- !u!1 &867720410
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,7 +397,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!1 &1194361159
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,7 +524,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   NumberOfBoost: 2
-  TransitionParticle: {fileID: 152186, guid: 9b53855fbba377f489a3d578fbf0869c, type: 2}
+  PlayerParticle:
+  - {fileID: 19839578, guid: caf123ce86786cc4394db22fa1d16649, type: 2}
+  - {fileID: 19839578, guid: 9b53855fbba377f489a3d578fbf0869c, type: 2}
+  - {fileID: 19839578, guid: 38abddfb11bf8554d8b9a8176cb164c2, type: 2}
+  playerColors:
+  - {fileID: 2100000, guid: 4cd83a1af8fc16c49b12bc4ba2e493cc, type: 2}
+  - {fileID: 2100000, guid: 055eb53f7c68e1543a7b52ee1ff5f280, type: 2}
+  - {fileID: 2100000, guid: fb2f09f89e455024abfb52c50b915272, type: 2}
 --- !u!23 &2106996734
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -535,10 +542,10 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fb2f09f89e455024abfb52c50b915272, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
+  m_UseLightProbes: 0
   m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
@@ -565,12 +572,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2106996731}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.52, y: -3.54, z: 0}
+  m_LocalPosition: {x: -3.55, y: -2.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1908121749}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!61 &2106996737
 BoxCollider2D:
   m_ObjectHideFlags: 0

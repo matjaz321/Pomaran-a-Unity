@@ -9,8 +9,10 @@ public class CharacterMovement : MonoBehaviour {
 	[SerializeField] private Transform GroundDetection;
 	[SerializeField] private LayerMask Ground;
 	[SerializeField] private int NumberOfBoost;
-	[SerializeField] private GameObject TransitionParticle;
+	[SerializeField] private ParticleSystem[] PlayerParticle;	
+	[SerializeField] private Material[] playerColors;
 
+	private MeshRenderer playerRenderer;
 	private Animator myAnim;
 	private Rigidbody2D myRb;
 	private bool grounded;
@@ -20,6 +22,7 @@ public class CharacterMovement : MonoBehaviour {
 	void Start () {
 		myRb = gameObject.GetComponent<Rigidbody2D> ();
 		myAnim = gameObject.GetComponent<Animator> ();
+		playerRenderer = gameObject.GetComponent<MeshRenderer> ();
 	}
 	
 	// Update is called once per frame
@@ -36,27 +39,42 @@ public class CharacterMovement : MonoBehaviour {
 
 			myRb.velocity = new Vector2 (myRb.velocity.x, JumpSpeed * Time.deltaTime);
 		}
-
 		if (Input.GetKey (KeyCode.RightArrow)) {
-			if(myRb.velocity.x <= (speed * Time.deltaTime))
+			if (myRb.velocity.x <= (speed * Time.deltaTime)) {
 				myRb.velocity = new Vector2 (speed * Time.deltaTime, myRb.velocity.y);
+			}
 		}
 
 		if (Input.GetKey (KeyCode.LeftArrow)) {
-			if(myRb.velocity.x >= (-speed * Time.deltaTime))
+			if (myRb.velocity.x >= (-speed * Time.deltaTime)) {
 				myRb.velocity = new Vector2 (-speed * Time.deltaTime, myRb.velocity.y);
-
+			}
 		}
 
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			if (NumberOfBoost > 0 && (myRb.velocity.x != 0 || myRb.velocity.y != 0)) {
 				NumberOfBoost -= 1;
-			
-				GameObject instantiatedParticle = Instantiate (TransitionParticle, transform.position, Quaternion.identity) as GameObject;
-				Destroy (instantiatedParticle, 3f);
+
+				if (NumberOfBoost == 2) {
+					playerRenderer.material = playerColors [2];
+					GameObject instantiatedParticle = Instantiate (PlayerParticle [1], transform.position, Quaternion.identity) as GameObject;
+					Destroy (instantiatedParticle, 3f);
+				} else if (NumberOfBoost == 1) {
+					playerRenderer.material = playerColors [1];
+					GameObject instantiatedParticle = Instantiate (PlayerParticle [2], transform.position, Quaternion.identity) as GameObject;
+					Destroy (instantiatedParticle, 3f);
+				} else if (NumberOfBoost == 0) {
+					playerRenderer.material = playerColors [0];
+					GameObject instantiatedParticle = Instantiate (PlayerParticle[0], transform.position, Quaternion.identity) as GameObject;
+					Destroy (instantiatedParticle, 3f);
+				}
+
+				//GameObject instantiatedParticle = Instantiate (TransitionParticle, transform.position, Quaternion.identity) as GameObject;
+				//Destroy (instantiatedParticle, 3f);
 
 				if (myRb.velocity.x > 0) {
 					myRb.velocity = new Vector2 (myRb.velocity.x * BoostSpeed * Time.deltaTime, myRb.velocity.x * BoostSpeed * Time.deltaTime);
+
 				} else {
 					myRb.velocity = new Vector2 (myRb.velocity.x * BoostSpeed * Time.deltaTime, -myRb.velocity.x * BoostSpeed * Time.deltaTime);
 				} 
@@ -68,6 +86,8 @@ public class CharacterMovement : MonoBehaviour {
 				if (grounded) {
 					myRb.velocity = new Vector2 (myRb.velocity.x * BoostSpeed / 2 * Time.deltaTime, 0);
 				}
+					
+					
 			}
 		}
 	}
