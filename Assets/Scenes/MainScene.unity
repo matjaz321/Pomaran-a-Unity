@@ -480,6 +480,7 @@ GameObject:
   - 114: {fileID: 2106996733}
   - 50: {fileID: 2106996732}
   - 61: {fileID: 2106996737}
+  - 95: {fileID: 2106996738}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -517,12 +518,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BoostSpeed: 150
   speed: 400
-  Jump: 1500
+  JumpSpeed: 1500
   GroundDetection: {fileID: 1908121749}
   Ground:
     serializedVersion: 2
     m_Bits: 256
   NumberOfBoost: 2
+  TransitionParticle: {fileID: 152186, guid: 9b53855fbba377f489a3d578fbf0869c, type: 2}
 --- !u!23 &2106996734
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -583,3 +585,20 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!95 &2106996738
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2106996731}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 51c81e95c6b321848bbbadc7f00a2320, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
