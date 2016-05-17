@@ -8,7 +8,7 @@ public class CharacterMovement : MonoBehaviour {
 	[SerializeField] private float JumpSpeed = 1500;
 	[SerializeField] private Transform GroundDetection;
 	[SerializeField] private LayerMask Ground;
-	[SerializeField] private int NumberOfBoost;
+	[SerializeField] public int NumberOfBoost;
 	[SerializeField] private ParticleSystem[] PlayerParticle;	
 	[SerializeField] private Material[] playerColors;
 	[SerializeField] private GameObject BoostSound;
@@ -29,7 +29,6 @@ public class CharacterMovement : MonoBehaviour {
 	private Animator myAnim;
 	private Rigidbody2D myRb;
 	private bool grounded;
-	private bool Boost = false;
 	private bool jumped = false;
 	// Use this for initialization
 	void Start () {
@@ -109,11 +108,11 @@ public class CharacterMovement : MonoBehaviour {
 				} else if (myRb.velocity.x < 0) {
 					myRb.velocity = new Vector2 (myRb.velocity.x * BoostSpeed * Time.deltaTime, -myRb.velocity.x * BoostSpeed * Time.deltaTime);
 				} else {
+					if (grounded) {
 					myRb.velocity = new Vector2 (7 * BoostSpeed * Time.deltaTime, 0);
-				}
-
-				if (grounded) {
-					myRb.velocity = new Vector2 (myRb.velocity.x * BoostSpeed / 2 * Time.deltaTime, 0);
+					} else {
+						myRb.velocity = new Vector2 (0, 10 * BoostSpeed * Time.deltaTime);
+					}
 				}
 					
 			}

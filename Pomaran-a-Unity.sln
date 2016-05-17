@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{E01A4266-5B7B-6875-D768-08C6B434F94F}") = "Pomaran-a-Unity", "Assembly-CSharp.csproj", "{C80D785F-27E4-FAB1-65C7-597CB9B7896B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C80D785F-27E4-FAB1-65C7-597CB9B7896B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C80D785F-27E4-FAB1-65C7-597CB9B7896B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C80D785F-27E4-FAB1-65C7-597CB9B7896B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C80D785F-27E4-FAB1-65C7-597CB9B7896B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
